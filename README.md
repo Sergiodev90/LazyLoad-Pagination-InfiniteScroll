@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,3 +49,7 @@ export default tseslint.config({
   },
 })
 ```
+=======
+# LazyLoad-Pagination-InfiniteScroll
+Project to Practice and Explain how does work:
+>>>>>>> b1a64809dad7bb010b73f3d48ccd79948d45be3b
