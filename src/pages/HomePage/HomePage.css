@@ -1,0 +1,10 @@
+.Container-Sections{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Container-Sections NavLink {
+    width: 200px;
+    height: 40px;
+    background-color: aqua;
+}
