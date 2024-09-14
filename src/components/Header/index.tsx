@@ -4,9 +4,9 @@ function Header():JSX.Element{
     return(
         <div>
             <header className="container-header">
-                <NavLink to="/Lazyload">Lazy Load</NavLink>
-                <NavLink to="/InfiniteScroll">Infinite Scroll</NavLink>
-                <NavLink to="/Pagination"> Pagination </NavLink>
+                <NavLink className="Container-Button-Change-Page " to="/Lazyload">Lazy Load</NavLink>
+                <NavLink className="Container-Button-Change-Page "  to="/InfiniteScroll">Infinite Scroll</NavLink>
+                <NavLink className="Container-Button-Change-Page "  to="/Pagination"> Pagination </NavLink>
             </header>
         </div>
     );

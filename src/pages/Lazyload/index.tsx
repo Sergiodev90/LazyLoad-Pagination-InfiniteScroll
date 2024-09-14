@@ -1,8 +1,21 @@
+import { useState } from 'react';
+import './Lazyloader.css'
+
 function LazyloadPage():JSX.Element{
+    const [click,setClick] = useState<boolean>(false)
+    const handleClick= ():void=>{
+        setClick(true)
+    }
     return(
-        <div>
-            This is the Lazy Loading
-        </div>
+        <>
+        {!click &&  <div className="LazyloaderContainer"> 
+            Generate Random Images To see:
+        </div>}
+        {!click && <button onClick={handleClick}>Start</button>}
+        {
+
+        }
+        </>
     );
 }
 
