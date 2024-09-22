@@ -7,7 +7,6 @@ import { Menu } from './pages/Menu'
 import { ContainerImages } from './components/ContainerImages'
 
 
-
 function App() {
 
   return (
