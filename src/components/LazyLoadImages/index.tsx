@@ -1,12 +1,28 @@
 import { useEffect, useRef, useState } from "react";
-
+import './LazyLoadImages.css'
 interface Props {
   image: string;
   id: string;
+  className:string
 }
 
+type stateSrc = {
+    src:string,
+    setSrc: (src: string) => void // Ahora es una función que acepta un string
+}
+
+// interface PropsIntersectionObserver{
+//     node:HTMLImageElement,
+//     type:string
+//     callback?: () => void,
+//     stateSrc?:stateSrc
+// }
+
+
+
 export const LazyLoadImages = (props: Props): JSX.Element => {
-  const [src, setSrc] = useState<string>(""); // Inicialmente vacío
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [srcImage,setSrcImage] = useState<string>(""); // Inicialmente vacío
   const node = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
@@ -16,7 +32,8 @@ export const LazyLoadImages = (props: Props): JSX.Element => {
             console.log(entry)
           if (entry.isIntersecting) {
             // Cuando la imagen está en el viewport, se asigna el src real
-            setSrc(props.image);
+            setIsVisible(true);
+            setSrcImage(props.image)
             observer.unobserve(entry.target); // Deja de observar esta imagen
           }
         });
@@ -37,5 +54,5 @@ export const LazyLoadImages = (props: Props): JSX.Element => {
     };
   }, [props.image]);
 
-  return <img ref={node} src={src} alt={props.id} style={{ width: '500px', height: '500px' }} />;
+  return <img ref={node} src={srcImage} alt={props.id}  className={isVisible ? "image-Lazy animate-image" : 'image-Lazy'}/>;
 };

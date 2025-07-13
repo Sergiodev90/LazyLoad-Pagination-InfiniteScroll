@@ -16,29 +16,29 @@ function LazyloadPage(): JSX.Element {
       setLoading(true);
     }
   };
-  useEffect(()=>{
-    const observer = new IntersectionObserver((entries)=>{
-        entries.forEach((entry)=>{
-            if(entry.isIntersecting && data.length !== 0){
-                getCats().then((fetchedData) => {
-                    setData((prevData) => [...prevData, ...fetchedData]);
-                    setLoading(false)
-                });
-            }
-        })
-    },{})
+//   useEffect(()=>{
+//     const observer = new IntersectionObserver((entries)=>{
+//         entries.forEach((entry)=>{
+//             if(entry.isIntersecting && data.length !== 0){
+//                 getCats().then((fetchedData) => {
+//                     setData((prevData) => [...prevData, ...fetchedData]);
+//                     setLoading(false)
+//                 });
+//             }
+//         })
+//     },{})
 
 
 
-    if(FinalNode.current){
-        observer.observe(FinalNode.current)
-    }
+//     if(FinalNode.current){
+//         observer.observe(FinalNode.current)
+//     }
 
-    return () =>{
-        if (FinalNode.current) observer.unobserve(FinalNode.current); // Limpia el observer
+//     return () =>{
+//         if (FinalNode.current) observer.unobserve(FinalNode.current); // Limpia el observer
 
-    }
-  })
+//     }
+//   })
 
   useEffect(() => {
     if (click) {
@@ -59,7 +59,7 @@ function LazyloadPage(): JSX.Element {
       <div className="LazyloaderContainer">
         {loading && <h1>Loading ...</h1>}
         {data.map((item) => (
-          <LazyLoadImages image={item.url} id={item.id} key={item.id} />
+          <LazyLoadImages image={item.url} id={item.id} key={item.id} className="animate-image"/>
         ))}
       </div>
       <div ref={FinalNode}></div>
